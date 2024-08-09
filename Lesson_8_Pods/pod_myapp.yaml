@@ -1,9 +1,3 @@
-apiVersion: v3
-kind: Pod
-metadata:
-  name: my-web
-  labels:
-    env: prod
     app: main
     tier: frontend
     owner: Sergei Ches
