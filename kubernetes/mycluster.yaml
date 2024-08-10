@@ -13,10 +13,10 @@ metadata:
 #      us-east-1a: { id: subnet-ffffffffffff  }
 
 nodeGroups:
-  - name: worker-nodes-group-1
-    instanceType: m5.large
-    desiredCapacity: 2
-  - name: worker-nodes-group-2
-    instanceType: r5.large
-    desiredCapacity: 2
+- name: worker-nodes-group-1
+  instanceType: t2.micro
+  desiredCapacity: 1
+- name: worker-nodes-group-2
+  instanceType: t2.small
+  desiredCapacity: 2
 
