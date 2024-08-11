@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 apiVersion: v1
 kind: Pod
 metadata:
@@ -15,6 +16,8 @@ spec:
 =======
 =======
 >>>>>>> origin/main
+=======
+>>>>>>> origin/main
     app: main
     tier: frontend
     owner: Sergei Ches
@@ -22,6 +25,9 @@ spec:
   containers:
   - name: container-meb
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 =======
 >>>>>>> origin/main

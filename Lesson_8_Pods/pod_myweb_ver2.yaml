@@ -1,6 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 apiVersion: v1
+=======
+apiVersion: v2
+>>>>>>> origin/main
 =======
 apiVersion: v2
 >>>>>>> origin/main
@@ -16,7 +20,11 @@ metadata:
     tier: frontend
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     owner: SergeiChes
+=======
+    owner: Sergei Ches
+>>>>>>> origin/main
 =======
     owner: Sergei Ches
 >>>>>>> origin/main
