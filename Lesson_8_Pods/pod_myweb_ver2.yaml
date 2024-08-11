@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-apiVersion: v1
-=======
 apiVersion: v2
->>>>>>> origin/main
-=======
-apiVersion: v2
->>>>>>> origin/main
 kind: Pod
 metadata:
   name: my-web
@@ -14,15 +6,7 @@ metadata:
     env: prod
     app: main
     tier: frontend
-<<<<<<< HEAD
-<<<<<<< HEAD
     owner: SergeiChes
-=======
-    owner: Sergei Ches
->>>>>>> origin/main
-=======
-    owner: Sergei Ches
->>>>>>> origin/main
 spec:
   containers:
   - name: container-apache
