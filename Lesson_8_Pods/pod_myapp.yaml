@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,12 +13,17 @@ spec:
   containers:
   - name: container-web
 =======
+=======
+>>>>>>> origin/main
     app: main
     tier: frontend
     owner: Sergei Ches
 spec:
   containers:
   - name: container-meb
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
     image: nginx:latest
     ports:
