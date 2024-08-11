@@ -4,6 +4,7 @@ metadata:
   name: my-web-deployment
   labels:
     app: my-k8s-application
+    owner: SergeiChes
 spec:
   selector:
     matchLabels:
@@ -15,6 +16,10 @@ spec:
     spec:
       containers:
       - name: kgb-web
-        image: chesnokov70/k8s-php:version1
+        image: adv4000/k8sphp:version1
         ports:
         - containerPort: 80
+
+
+
+
