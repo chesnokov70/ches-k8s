@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  labels:
+    app: my-k8s-deployment
+spec:
+  replicas: 3
+  selector:
+    matchlabels:
+      project: kgb
+  template:
+    metadata:
+      labels:
+        progect: kgb # Service will look for those PODS Labels!!!
+    spec:
+      containers:
+      - name: kgb_web
+        image: adv4000/k8sphp:latest
+        ports:
+        - containerport: 80

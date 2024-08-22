@@ -1,0 +1,47 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: sergei-super-cluster
+  region: us-east-1
+
+#vpc:
+#  subnets:
+#    private:
+#      us-east-1a: {id: subnet-xxxxxxxxxxxx}
+#      us-east-1b: {id: subnet-yyyyyyyyyyyy}
+#      us-east-1c: {id: subnet-zzzzzzzzzzzz}
+
+nodeGroups:
+- name: ubuntu-t2-micro-nodes
+  instanceType: t2.micro
+  desiredCapacity: 2
+  maxSize: 3
+  minSize: 1
+  amiFamily: Ubuntu2204 # This specifies that the nodes in the group will use the Ubuntu 20.04 AMI provided by Amazon EKS.
+  ssh:
+    allow: true # enables SSH access to the nodes.
+    publicKeyName: ssh_new_aws_devops_key # your ssh key name
+  privateNetworking: false # true ensures that the instances do not have public IP addresses and are only accessible within the VPC.
+
+- name: ubuntu-t3-micro-nodes
+  instanceType: t3.micro
+  desiredCapacity: 2
+  maxSize: 4
+  minSize: 2
+  amiFamily: Ubuntu2204
+  ssh:
+    allow: true
+    publicKeyName: ssh_new_aws_devops_key
+  privateNetworking: false
+
+#- name: ubuntu-m5-large-nodes
+#  instanceType: m5.large
+#  desiredCapacity: 2
+#  maxSize: 5
+#  minSize: 1
+#  amiFamily: Ubuntu2204
+#  ssh:
+#    allow: true
+#    publicKeyName: ssh_new_aws_devops_key
+#  privateNetworking: false

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web1-deployment
+  labels:
+    app: my-k8s1-deployment
+spec:
+  replicas: 3
+  selector:
+    matchlabels:
+      project: kgb1
+  template:
+    metadata:
+      labels:
+        progect: kgb1 # Service will look forward
+    spec:
+      containers:
+      - name: kgb1_web
+        image: adv4000/k8sphp:version1
+        ports:
+        - containerport: 80
