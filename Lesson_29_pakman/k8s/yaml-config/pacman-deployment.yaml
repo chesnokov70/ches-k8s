@@ -1,0 +1,82 @@
+# Namespace-Definition
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pacman
+
+---
+
+# Ingress Definition
+# -----------------------------------
+
+
+# Deployment Definition for Pac-Man Application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pac-man
+  namespace: pacman
+  labels:
+    name: pac-man
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: pac-man
+  template:
+    metadata:
+      labels:
+        name: pac-man
+    spec:
+      containers:
+      - name: pac-man
+        image: docker.io/jessehoch/pacman-nodejs-app:latest
+        ports:
+        - name: http-server
+          containerPort: 8080
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "8080"
+        - name: MONGO_SERVICE_HOST
+          value: "mongo.pacman.svc.cluster.local" # servicename.namespace.svc.cluster.local
+        - name: MONGO_AUTH_USER
+          value: "pacman"
+        - name: MONGO_AUTH_PWD
+          value: "pacman"
+        - name: MONGO_DATABASE
+          value: "pacman"
+        - name: MONGO_COLECTION
+          value: "pacman"
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+        #      requests:
+      #       cpu:
+      #      memory:
+      #   limits:
+      #    cpu:
+#   memory:
+# Addition environment variables can be added here as requared          
+
+---
+
+# Service Definition for Pac-Man Application
+apiVersion: v1
+kind: Service
+metadata:
+  name: pac-man
+  namespace: pacman
+  labels:
+    name: pac-man
+spec:
+  selector:
+    name: pac-man
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 30080
+

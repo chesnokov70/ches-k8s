@@ -27,8 +27,8 @@ nodeGroups:
 - name: ubuntu-t3-micro-nodes
   instanceType: t3.micro
   desiredCapacity: 2
-  maxSize: 4
-  minSize: 2
+  maxSize: 3
+  minSize: 1
   amiFamily: Ubuntu2204
   ssh:
     allow: true
