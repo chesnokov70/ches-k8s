@@ -7,15 +7,17 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
-    matchlabels:
+    matchLabels:
       project: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        progect: {{ .Release.Name }}# Service will look for those PODS Labels!!!
+        project: {{ .Release.Name }} # Service will look for those PODS Labels!!!
     spec:
       containers:
-      - name: {{ .Release.Name }}_web
-        image: {{ .Values.container.image }}
-        ports:
-        - containerport: 80
+        - name: {{ .Release.Name }}-web
+          image: {{ .Values.container.image }}
+          ports:
+            - containerPort: 80
+
+

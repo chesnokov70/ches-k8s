@@ -7,15 +7,15 @@ metadata:
 spec:
   replicas: 3
   selector:
-    matchlabels:
+    matchLabels:
       project: kgb
   template:
     metadata:
       labels:
-        progect: kgb # Service will look for those PODS Labels!!!
+        project: kgb # Service will look for those PODS Labels!!!
     spec:
       containers:
-      - name: kgb_web
+      - name: kgb-web
         image: adv4000/k8sphp:latest
         ports:
-        - containerport: 80
+        - containerPort: 80

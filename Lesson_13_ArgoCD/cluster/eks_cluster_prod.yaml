@@ -1,0 +1,37 @@
+#-------------------------------------------------------------------------------------
+# Manifest File to create AWS EKS Cluster in Custom VPC
+#
+# eksctl create cluster -f- eks_cluster_dev.yaml 
+# eksctl create cluster -f- eks_cluster_prod.yaml
+#
+# Copyleft (c) by Sergei Ches 2024
+#-------------------------------------------------------------------------------------
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: demo-prod
+  region: us-east-1
+  version: "1.27"
+
+vpc:
+  id: "vpc-035e2b09a5d3829ad"
+  subnets:
+    public:
+      us-east-1a: {id: subnet-0d04f12b67e171898} # For Load Balancer
+      us-east-1d: {id: subnet-01636b6d64d62ba3b} # For Load Balancer
+    private:
+      us-east-1d: {id: subnet-092d1f920debc8c33} # For Master Node
+      us-east-1a: {id: subnet-07012165fd992e4a8} # For Master Node
+
+managedNodeGroups:
+- name: general
+  instanceType: t3.small
+  desiredCapacity: 3
+  labels: {role: general}
+  volumeSize: 70
+  privateNetworking: true
+  # amiFamily: Ubuntu2204 # This specifies that the nodes in the group will use the Ubuntu 20.04 AMI provided by Amazon EKS.
+
+  #ssh:
+  #  allow: true # enables SSH access to the nodes.
+  #  publicKeyName: ssh_new_aws_devops_key # your ssh key name

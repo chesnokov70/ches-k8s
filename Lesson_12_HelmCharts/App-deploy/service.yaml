@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     project: kgb #Selectiing PODS with those lLabels!!!
-  type: Loadbalancer
+  type: LoadBalancer
   ports:
   - name: app-listener
     protocol: TCP

@@ -7,15 +7,17 @@ metadata:
 spec:
   replicas: 3
   selector:
-    matchlabels:
+    matchLabels:
       project: kgb1
   template:
     metadata:
       labels:
-        progect: kgb1 # Service will look forward
+        project: kgb1 # Service will look for those PODS Labels!!!
     spec:
       containers:
-      - name: kgb1_web
+      - name: kgb1-web
         image: adv4000/k8sphp:version1
         ports:
-        - containerport: 80
+        - containerPort: 80
+
+
